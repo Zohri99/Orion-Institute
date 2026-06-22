@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orion Training Institute | Learn. Innovate. Develop.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --orion-gray: #4a4a4a;
+    --orion-gray-light: #6b6b6b;
+    --orion-orange: #E5721C;
+    --orion-orange-light: #F08A3A;
+    --orion-orange-pale: #FDF0E6;
+    --orion-dark: #1a1a1a;
+    --orion-mid: #2e2e2e;
+    --surface: #ffffff;
+    --surface-2: #f7f7f5;
+    --surface-3: #f0efe9;
+    --text-primary: #1a1a1a;
+    --text-secondary: #5a5a5a;
+    --text-muted: #888;
+    --border: rgba(0,0,0,0.09);
+    --border-strong: rgba(0,0,0,0.16);
+    --radius: 12px;
+    --radius-lg: 18px;
+    --shadow: 0 2px 20px rgba(0,0,0,0.07);
+    --shadow-md: 0 6px 40px rgba(0,0,0,0.10);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--surface);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  .nav-logo img { height: 44px; display: block; }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--text-secondary);
+    transition: color .2s;
+  }
+
+  .nav-links a:hover { color: var(--orion-orange); }
+
+  .nav-cta {
+    background: var(--orion-orange);
+    color: white !important;
+    padding: 10px 22px;
+    border-radius: 100px;
+    font-weight: 600 !important;
+    transition: background .2s, transform .15s !important;
+  }
+
+  .nav-cta:hover { background: var(--orion-orange-light) !important; transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    padding-top: 72px;
+    min-height: 100vh;
+    background: var(--orion-dark);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 70% at 80% 50%, rgba(229,114,28,0.14) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 50% at 20% 80%, rgba(229,114,28,0.07) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(229,114,28,0.15);
+    border: 1px solid rgba(229,114,28,0.3);
+    color: var(--orion-orange-light);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-eyebrow .dot {
+    width: 6px; height: 6px;
+    background: var(--orion-orange);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.4rem, 6vw, 5.2rem);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 .accent { color: var(--orion-orange); }
+
+  .hero-sub {
+    font-size: 17px;
+    color: rgba(255,255,255,0.6);
+    max-width: 440px;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--orion-orange);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background .2s, transform .15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-primary:hover { background: var(--orion-orange-light); transform: translateY(-2px); }
+
+  .btn-outline-white {
+    background: transparent;
+    color: rgba(255,255,255,0.8);
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: border-color .2s, color .2s, transform .15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-outline-white:hover { border-color: rgba(255,255,255,0.5); color: white; transform: translateY(-2px); }
+
+  .hero-stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .stat-item .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+  }
+
+  .stat-item .num span { color: var(--orion-orange); }
+
+  .stat-item .lbl {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    font-weight: 500;
+    margin-top: 2px;
+  }
+
+  /* Hero right — automation visual */
+  .hero-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    backdrop-filter: blur(6px);
+    transition: border-color .3s;
+  }
+
+  .hero-card:hover { border-color: rgba(229,114,28,0.35); }
+
+  .hero-card-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .hero-card-icon {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    background: rgba(229,114,28,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+
+  .hero-card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .hero-card-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 1px;
+  }
+
+  .hero-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(229,114,28,0.12);
+    border: 1px solid rgba(229,114,28,0.2);
+    border-radius: 100px;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--orion-orange-light);
+    margin-right: 6px;
+    margin-top: 4px;
+  }
+
+  .flow-bar {
+    background: rgba(255,255,255,0.06);
+    border-radius: 4px;
+    height: 4px;
+    margin-top: 10px;
+    overflow: hidden;
+  }
+
+  .flow-fill {
+    height: 100%;
+    background: var(--orion-orange);
+    border-radius: 4px;
+    animation: flowIn 2.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes flowIn {
+    from { width: 30%; }
+    to { width: 90%; }
+  }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 100px 5%; }
+
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+
+  .section-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orion-orange);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 4vw, 3.4rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.08;
+    margin-bottom: 1rem;
+  }
+
+  .section-desc {
+    font-size: 16px;
+    color: var(--text-secondary);
+    max-width: 520px;
+    line-height: 1.7;
+  }
+
+  /* ── WHY ORION ── */
+  .why-section { background: var(--surface-2); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+
+  .why-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    transition: box-shadow .25s, transform .25s, border-color .25s;
+  }
+
+  .why-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+    border-color: rgba(229,114,28,0.25);
+  }
+
+  .why-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    background: var(--orion-orange-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 1.25rem;
+  }
+
+  .why-card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+  }
+
+  .why-card p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  /* ── COURSES ── */
+  .courses-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .filter-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .filter-tab {
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid var(--border-strong);
+    background: transparent;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: all .2s;
+  }
+
+  .filter-tab.active, .filter-tab:hover {
+    background: var(--orion-orange);
+    color: white;
+    border-color: var(--orion-orange);
+  }
+
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .course-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: box-shadow .25s, transform .25s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .course-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+  }
+
+  .course-thumb {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    position: relative;
+  }
+
+  .course-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: white;
+    border-radius: 100px;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--orion-gray);
+  }
+
+  .course-body {
+    padding: 1.25rem 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .course-category {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--orion-orange);
+    margin-bottom: 6px;
+  }
+
+  .course-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    line-height: 1.35;
+  }
+
+  .course-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 1rem;
+  }
+
+  .course-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+    margin-top: auto;
+  }
+
+  .course-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .enroll-btn {
+    background: var(--orion-orange-pale);
+    color: var(--orion-orange);
+    padding: 7px 16px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid rgba(229,114,28,0.2);
+    cursor: pointer;
+    transition: background .2s, color .2s;
+    text-decoration: none;
+  }
+
+  .enroll-btn:hover { background: var(--orion-orange); color: white; }
+
+  /* ── AUTOMATION STRIP ── */
+  .automation-strip {
+    background: var(--orion-dark);
+    padding: 100px 5%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .automation-strip::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(229,114,28,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .automation-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .automation-inner .section-title { color: white; }
+  .automation-inner .section-desc { color: rgba(255,255,255,0.5); }
+  .automation-inner .section-eyebrow { color: var(--orion-orange-light); }
+
+  .auto-features {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 2rem;
+  }
+
+  .auto-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    transition: border-color .25s;
+  }
+
+  .auto-feature:hover { border-color: rgba(229,114,28,0.3); }
+
+  .auto-feature-icon {
+    font-size: 18px;
+    width: 36px; height: 36px;
+    background: rgba(229,114,28,0.12);
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .auto-feature-text h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 3px;
+  }
+
+  .auto-feature-text p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.5;
+  }
+
+  /* Pipeline visual */
+  .pipeline {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pipeline-step {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pipeline-step::after {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--orion-orange);
+    border-radius: 10px 0 0 10px;
+  }
+
+  .pipeline-step .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: rgba(229,114,28,0.3);
+    min-width: 28px;
+  }
+
+  .pipeline-step .step-info h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 2px;
+  }
+
+  .pipeline-step .step-info p {
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .pipeline-step .step-status {
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 100px;
+    background: rgba(229,114,28,0.12);
+    color: var(--orion-orange-light);
+    border: 1px solid rgba(229,114,28,0.2);
+  }
+
+  .pipeline-step .step-status.done {
+    background: rgba(30,170,90,0.12);
+    color: #4caf82;
+    border-color: rgba(30,170,90,0.2);
+  }
+
+  /* ── ACCREDITATIONS ── */
+  .accred-section { background: var(--surface-2); }
+
+  .accred-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 2.5rem;
+    justify-content: center;
+  }
+
+  .accred-badge {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: border-color .2s, color .2s, transform .2s;
+  }
+
+  .accred-badge:hover {
+    border-color: rgba(229,114,28,0.35);
+    color: var(--orion-orange);
+    transform: translateY(-2px);
+  }
+
+  /* ── LOCATION ── */
+  .location-section {
+    background: var(--orion-dark);
+    padding: 100px 5%;
+  }
+
+  .location-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .location-inner .section-title { color: white; }
+  .location-inner .section-desc { color: rgba(255,255,255,0.5); }
+  .location-inner .section-eyebrow { color: var(--orion-orange-light); }
+
+  .location-details {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .loc-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    color: rgba(255,255,255,0.6);
+    font-size: 15px;
+  }
+
+  .loc-item .loc-icon {
+    font-size: 18px;
+    color: var(--orion-orange);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .loc-item strong {
+    display: block;
+    color: rgba(255,255,255,0.85);
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+
+  .loc-item span {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .map-frame {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+    height: 380px;
+  }
+
+  .map-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: grayscale(20%) contrast(1.05);
+  }
+
+  /* ── CTA BANNER ── */
+  .cta-banner {
+    padding: 80px 5%;
+    background: var(--orion-orange);
+    text-align: center;
+  }
+
+  .cta-banner h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .cta-banner p {
+    color: rgba(255,255,255,0.75);
+    font-size: 17px;
+    max-width: 500px;
+    margin: 0 auto 2rem;
+    line-height: 1.65;
+  }
+
+  .btn-white {
+    background: white;
+    color: var(--orion-orange);
+    padding: 14px 32px;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform .15s, box-shadow .15s;
+  }
+
+  .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #111;
+    padding: 60px 5% 36px;
+    color: rgba(255,255,255,0.5);
+    font-size: 14px;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .footer-logo { height: 40px; margin-bottom: 1rem; filter: brightness(0) invert(1); }
+
+  .footer-about {
+    color: rgba(255,255,255,0.4);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .footer-col h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 8px; }
+  .footer-col ul a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.4);
+    font-size: 13px;
+    transition: color .2s;
+  }
+  .footer-col ul a:hover { color: var(--orion-orange-light); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: rgba(255,255,255,0.25);
+  }
+
+  .footer-tagline {
+    color: rgba(229,114,28,0.7);
+    font-weight: 500;
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .why-grid { grid-template-columns: 1fr; }
+    .automation-inner { grid-template-columns: 1fr; }
+    .location-inner { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="nav-logo"><img src="Orion_Logo__1_.png" alt="Orion Training Institute"></a>
+  <ul class="nav-links">
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#why">Why Orion</a></li>
+    <li><a href="#accreditations">Accreditations</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#enroll" class="nav-cta">Enroll Now</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        Muscat's Premier Training Institute
+      </div>
+      <h1>
+        Shape Your<br>
+        Future With<br>
+        <span class="accent">Orion.</span>
+      </h1>
+      <p class="hero-sub">
+        Industry-accredited programs in HSE, IT, Technical Training & Business Leadership — delivered with world-class automation and modern learning tools from Azaiba, Muscat.
+      </p>
+      <div class="hero-actions">
+        <a href="#courses" class="btn-primary">Browse Courses →</a>
+        <a href="#why" class="btn-outline-white">How it works</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="num">15<span>+</span></div>
+          <div class="lbl">Years in Oman</div>
+        </div>
+        <div class="stat-item">
+          <div class="num">40<span>+</span></div>
+          <div class="lbl">Accredited Courses</div>
+        </div>
+        <div class="stat-item">
+          <div class="num">5K<span>+</span></div>
+          <div class="lbl">Graduates</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-top">
+          <div class="hero-card-icon">🎓</div>
+          <div>
+            <div class="hero-card-title">Smart Enrollment System</div>
+            <div class="hero-card-sub">Auto-processes registrations 24/7</div>
+          </div>
+        </div>
+        <div>
+          <span class="hero-pill">✓ Instant confirmation</span>
+          <span class="hero-pill">✓ SMS alerts</span>
+          <span class="hero-pill">✓ Online payment</span>
+        </div>
+        <div class="flow-bar"><div class="flow-fill"></div></div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-top">
+          <div class="hero-card-icon">📊</div>
+          <div>
+            <div class="hero-card-title">Learner Progress Dashboard</div>
+            <div class="hero-card-sub">Real-time tracking & reports</div>
+          </div>
+        </div>
+        <div>
+          <span class="hero-pill">📈 Completion rate 94%</span>
+          <span class="hero-pill">🏅 Cert ready</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-top">
+          <div class="hero-card-icon">🤖</div>
+          <div>
+            <div class="hero-card-title">AI Course Matching</div>
+            <div class="hero-card-sub">Find your perfect program instantly</div>
+          </div>
+        </div>
+        <div>
+          <span class="hero-pill">Career-aligned</span>
+          <span class="hero-pill">Skills-based</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY ORION ── -->
+<section class="why-section" id="why">
+  <div class="section-inner">
+    <div class="section-eyebrow">Why Orion</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:end; margin-bottom:0.5rem;">
+      <div>
+        <h2 class="section-title">Built for Oman's<br>Workforce, Powered<br>by Technology</h2>
+      </div>
+      <div>
+        <p class="section-desc">Orion Training Institute fuses accredited vocational learning with modern automation — so learners enroll faster, train smarter, and employers see measurable results.</p>
+      </div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🏅</div>
+        <h3>Internationally Accredited</h3>
+        <p>Courses recognized by City & Guilds, NEBOSH, IOSH, CompTIA, Autodesk, Microsoft, and more — respected by top employers across the Gulf.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <h3>Automated Enrollment</h3>
+        <p>Register, pay, and receive instant confirmation without paperwork. Our portal works around the clock so nothing slows you down.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🎯</div>
+        <h3>Industry-Tailored Programs</h3>
+        <p>Training designed hand-in-hand with PDO, OPAL, and Oman's private sector — so graduates step into roles that need them immediately.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📱</div>
+        <h3>Hybrid Learning</h3>
+        <p>Blend face-to-face sessions with online resources. Access materials, assignments, and progress reports from any device, anytime.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📊</div>
+        <h3>Real-Time Progress Tracking</h3>
+        <p>Learners and corporate clients get live dashboards showing attendance, assessment scores, and projected certification dates.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🤝</div>
+        <h3>Corporate Solutions</h3>
+        <p>Custom training packages, group enrollments, on-site delivery, and dedicated account management for businesses of all sizes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COURSES ── -->
+<section id="courses">
+  <div class="section-inner">
+    <div class="courses-header">
+      <div>
+        <div class="section-eyebrow">Programs</div>
+        <h2 class="section-title">Explore Our Courses</h2>
+      </div>
+      <div class="filter-tabs">
+        <button class="filter-tab active" onclick="filterCourses('all', this)">All</button>
+        <button class="filter-tab" onclick="filterCourses('hse', this)">HSE</button>
+        <button class="filter-tab" onclick="filterCourses('it', this)">IT</button>
+        <button class="filter-tab" onclick="filterCourses('technical', this)">Technical</button>
+        <button class="filter-tab" onclick="filterCourses('business', this)">Business</button>
+        <button class="filter-tab" onclick="filterCourses('diploma', this)">Diplomas</button>
+      </div>
+    </div>
+    <div class="courses-grid" id="coursesGrid">
+      <!-- Cards injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ── AUTOMATION STRIP ── -->
+<section class="automation-strip" id="automation">
+  <div class="automation-inner">
+    <div>
+      <div class="section-eyebrow">Modern Automation</div>
+      <h2 class="section-title">Learning Powered<br>by Automation</h2>
+      <p class="section-desc">From application to certification, our platform handles the heavy lifting — letting trainers focus on teaching and learners focus on growing.</p>
+      <div class="auto-features">
+        <div class="auto-feature">
+          <div class="auto-feature-icon">🔔</div>
+          <div class="auto-feature-text">
+            <h4>Automated notifications</h4>
+            <p>SMS and email alerts for schedules, payments, and results — zero manual follow-up.</p>
+          </div>
+        </div>
+        <div class="auto-feature">
+          <div class="auto-feature-icon">📜</div>
+          <div class="auto-feature-text">
+            <h4>Digital certificate generation</h4>
+            <p>Certificates are issued and emailed the moment you pass — verifiable and tamper-proof.</p>
+          </div>
+        </div>
+        <div class="auto-feature">
+          <div class="auto-feature-icon">📋</div>
+          <div class="auto-feature-text">
+            <h4>Corporate reporting</h4>
+            <p>HR teams get automated monthly reports on team progress, compliance, and gap analysis.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <span class="step-num">01</span>
+        <div class="step-info">
+          <h4>Online registration</h4>
+          <p>Submit your application via the portal</p>
+        </div>
+        <span class="step-status done">Done</span>
+      </div>
+      <div class="pipeline-step">
+        <span class="step-num">02</span>
+        <div class="step-info">
+          <h4>Instant payment processing</h4>
+          <p>Secure online payment gateway</p>
+        </div>
+        <span class="step-status done">Done</span>
+      </div>
+      <div class="pipeline-step">
+        <span class="step-num">03</span>
+        <div class="step-info">
+          <h4>Auto-seat confirmation</h4>
+          <p>Seat reserved, schedule sent immediately</p>
+        </div>
+        <span class="step-status done">Done</span>
+      </div>
+      <div class="pipeline-step">
+        <span class="step-num">04</span>
+        <div class="step-info">
+          <h4>Training & assessment</h4>
+          <p>Attend sessions, complete assessments</p>
+        </div>
+        <span class="step-status" style="background:rgba(229,114,28,0.12);color:var(--orion-orange-light);">In progress</span>
+      </div>
+      <div class="pipeline-step">
+        <span class="step-num">05</span>
+        <div class="step-info">
+          <h4>Digital certificate issued</h4>
+          <p>Auto-emailed upon successful completion</p>
+        </div>
+        <span class="step-status" style="background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.3);">Upcoming</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ACCREDITATIONS ── -->
+<section class="accred-section" id="accreditations">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-eyebrow">Accreditations & Partners</div>
+    <h2 class="section-title">Globally Recognized</h2>
+    <p class="section-desc" style="margin: 0 auto 0.5rem;">Our courses are certified by the world's leading training authorities.</p>
+    <div class="accred-grid">
+      <div class="accred-badge">City &amp; Guilds</div>
+      <div class="accred-badge">NEBOSH</div>
+      <div class="accred-badge">IOSH</div>
+      <div class="accred-badge">CompTIA</div>
+      <div class="accred-badge">Microsoft Partner</div>
+      <div class="accred-badge">Autodesk</div>
+      <div class="accred-badge">Pearson VUE</div>
+      <div class="accred-badge">RTITB</div>
+      <div class="accred-badge">EC-Council</div>
+      <div class="accred-badge">BTEC</div>
+      <div class="accred-badge">EAL</div>
+      <div class="accred-badge">PASMA</div>
+      <div class="accred-badge">CISRS</div>
+      <div class="accred-badge">OPAL</div>
+      <div class="accred-badge">Certiport</div>
+      <div class="accred-badge">American Heart Association</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── LOCATION ── -->
+<section class="location-section" id="contact">
+  <div class="location-inner">
+    <div>
+      <div class="section-eyebrow">Find Us</div>
+      <h2 class="section-title">Located in<br>Azaiba, Muscat</h2>
+      <p class="section-desc">Visit our training centre or get in touch — our team is ready to help you find the right program.</p>
+      <div class="location-details">
+        <div class="loc-item">
+          <span class="loc-icon">📍</span>
+          <div>
+            <strong>Address</strong>
+            <span>Azaiba, Muscat, Sultanate of Oman</span>
+          </div>
+        </div>
+        <div class="loc-item">
+          <span class="loc-icon">📞</span>
+          <div>
+            <strong>Phone</strong>
+            <span>+968 9209 0451</span>
+          </div>
+        </div>
+        <div class="loc-item">
+          <span class="loc-icon">✉️</span>
+          <div>
+            <strong>Email</strong>
+            <span>info@orion-institute.org</span>
+          </div>
+        </div>
+        <div class="loc-item">
+          <span class="loc-icon">🕐</span>
+          <div>
+            <strong>Working Hours</strong>
+            <span>Sunday – Thursday: 7:00 AM – 4:00 PM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="map-frame">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.6!2d58.51!3d23.60!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e91f9a9a9f9a9f9%3A0x9f9f9a9f9a9f9a9f!2sAzaiba%2C%20Muscat%2C%20Oman!5e0!3m2!1sen!2som!4v1690000000000!5m2!1sen!2som"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Orion Training Institute location in Azaiba, Muscat">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-banner" id="enroll">
+  <h2>Ready to Level Up?</h2>
+  <p>Join thousands of Omani professionals who have advanced their careers with Orion Training Institute.</p>
+  <a href="#courses" class="btn-white">Browse All Courses →</a>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <img src="Orion_Logo__1_.png" alt="Orion Training Institute" class="footer-logo">
+        <p class="footer-about">Empowering Oman's workforce through world-class, accredited vocational training and modern learning automation. Based in Azaiba, Muscat.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Courses</h4>
+        <ul>
+          <li><a href="#courses">HSE Training</a></li>
+          <li><a href="#courses">Information Technology</a></li>
+          <li><a href="#courses">Technical Training</a></li>
+          <li><a href="#courses">Business & Leadership</a></li>
+          <li><a href="#courses">Diploma Programs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Institute</h4>
+        <ul>
+          <li><a href="#why">About Orion</a></li>
+          <li><a href="#accreditations">Accreditations</a></li>
+          <li><a href="#automation">How it Works</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+96892090451">+968 9209 0451</a></li>
+          <li><a href="mailto:info@orion-institute.org">info@orion-institute.org</a></li>
+          <li><a href="#contact">Azaiba, Muscat, Oman</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Orion Training Institute. All rights reserved.</span>
+      <span class="footer-tagline">Learn . Innovate . Develop</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const courses = [
+  { id: 1, category: 'business', cat_label: 'Business & Leadership', title: 'Business Writing Skills', desc: 'Write and deliver powerful, effective messages that get the response you need in professional settings.', icon: '✍️', bg: '#FFF3E6', duration: '3 Days', level: 'All levels' },
+  { id: 2, category: 'diploma', cat_label: 'Diploma', title: 'Level 3 Business Administration', desc: 'Gain the competencies to perform and excel in administrative roles across Oman\'s private and public sector.', icon: '📋', bg: '#E6F0FF', duration: '12 Months', level: 'Intermediate' },
+  { id: 3, category: 'hse', cat_label: 'HSE Training', title: 'NEBOSH General Certificate', desc: 'Globally recognised health and safety qualification. Ideal for supervisors and managers in any industry.', icon: '⛑️', bg: '#E6FFE6', duration: '10 Days', level: 'Intermediate' },
+  { id: 4, category: 'hse', cat_label: 'HSE · OPAL', title: 'OPAL Defensive Driving', desc: 'Develop the knowledge, beliefs and attitude to become a significantly safer driver on Oman\'s roads.', icon: '🚗', bg: '#FFF3E6', duration: '2 Days', level: 'All levels' },
+  { id: 5, category: 'technical', cat_label: 'Technical Training', title: 'HVAC Systems', desc: 'Master refrigeration and thermodynamics to install and troubleshoot commercial and residential HVAC systems.', icon: '❄️', bg: '#E6F5FF', duration: '4 Weeks', level: 'Beginner' },
+  { id: 6, category: 'it', cat_label: 'Information Technology', title: 'CCNA Networking', desc: 'Fundamental knowledge for IT careers: IPv4/IPv6 network implementation and basic security threat identification.', icon: '🌐', bg: '#F0E6FF', duration: '5 Days', level: 'Intermediate' },
+  { id: 7, category: 'it', cat_label: 'Information Technology', title: 'PC & Mobile Technician', desc: 'Comprehensive training in mobile phone and computer repair for a career as a certified technician.', icon: '💻', bg: '#E6FFF3', duration: '3 Weeks', level: 'Beginner' },
+  { id: 8, category: 'hse', cat_label: 'HSE Training', title: 'IOSH Managing Safely', desc: 'Give managers the skills and knowledge to handle health and safety responsibilities within their teams.', icon: '🛡️', bg: '#FFFFE6', duration: '4 Days', level: 'Management' },
+  { id: 9, category: 'technical', cat_label: 'Technical Training', title: 'RTITB Vehicle Marshaller', desc: 'Control traffic on and around a site safely. Learn to guide vehicles and drivers with correct hand signals.', icon: '🚧', bg: '#FFF0E6', duration: '2 Days', level: 'All levels' },
+  { id: 10, category: 'business', cat_label: 'Business & Leadership', title: 'Lean Six Sigma', desc: 'Reduce waste, improve processes, and drive measurable performance gains using proven LSS methodology.', icon: '📈', bg: '#E6F0FF', duration: '5 Days', level: 'Advanced' },
+  { id: 11, category: 'diploma', cat_label: 'Diploma', title: 'Cabin Crew Foundation', desc: 'Build the skills and earn certifications to apply for cabin crew roles with leading airlines and hospitality brands.', icon: '✈️', bg: '#E6F5FF', duration: '8 Weeks', level: 'Entry' },
+  { id: 12, category: 'hse', cat_label: 'HSE Training', title: 'Fire Safety & Prevention', desc: 'Understand fire behaviour, prevention principles and emergency response to keep workplaces safe.', icon: '🔥', bg: '#FFE6E6', duration: '2 Days', level: 'All levels' },
+];
+
+let activeFilter = 'all';
+
+function filterCourses(category, btn) {
+  activeFilter = category;
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  renderCourses();
+}
+
+function renderCourses() {
+  const grid = document.getElementById('coursesGrid');
+  const filtered = activeFilter === 'all' ? courses : courses.filter(c => c.category === activeFilter);
+  grid.innerHTML = filtered.map(c => `
+    <div class="course-card">
+      <div class="course-thumb" style="background:${c.bg}">
+        <span style="font-size:3rem">${c.icon}</span>
+        <span class="course-badge">${c.level}</span>
+      </div>
+      <div class="course-body">
+        <div class="course-category">${c.cat_label}</div>
+        <div class="course-title">${c.title}</div>
+        <div class="course-desc">${c.desc}</div>
+        <div class="course-meta">
+          <div class="course-meta-item">⏱ ${c.duration}</div>
+          <a href="#enroll" class="enroll-btn">Enroll →</a>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+renderCourses();
+
+// Animate hero stats
+function animateCount(el, target, suffix='') {
+  let start = 0;
+  const step = target / 40;
+  const timer = setInterval(() => {
+    start += step;
+    if (start >= target) { el.innerHTML = target + suffix; clearInterval(timer); return; }
+    el.innerHTML = Math.floor(start) + suffix;
+  }, 35);
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      animateCount(document.querySelector('.stat-item:nth-child(1) .num'), 15, '<span>+</span>');
+      animateCount(document.querySelector('.stat-item:nth-child(2) .num'), 40, '<span>+</span>');
+      observer.disconnect();
+    }
+  });
+}, { threshold: 0.4 });
+
+const statsEl = document.querySelector('.hero-stats');
+if (statsEl) observer.observe(statsEl);
+</script>
+
+</body>
+</html>
